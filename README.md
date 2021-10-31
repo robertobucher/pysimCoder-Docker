@@ -16,3 +16,22 @@ or
 docker pull robertobucher/pysimcoder:novnc
 ```
 
+The first image can be launched with
+```
+$ docker run --rm --env="DISPLAY" --net=host -v $XAUTHORITY:/tmp/.XAuthority -e XAUTHORITY=/tmp/.XAuthority robertobucher/pysimcoder:latest
+```
+At the prompt launch
+```
+psc
+```
+
+The second image (pysimcoder:novnc) runs from a web browser:
+```
+$ docker run --rm -it -p 8080:8080 robertobucher/pysimcoder:novnc
+```
+Open a browser and go to  `http://<server>:8080/vnc.html`
+
+In the terminal launch
+```
+psc
+```
