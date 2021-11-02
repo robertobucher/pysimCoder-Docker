@@ -28,8 +28,10 @@ RUN apt-get -y install \
 RUN apt-get -y clean
 RUN apt-get -y autoremove
 
-ADD . /pysimCoder
-WORKDIR /pysimCoder
+WORKDIR .
+RUN git clone https://github.com/robertobucher/pysimCoder
+
+WORKDIR ./pysimCoder
 RUN make -f make4docker.mak
 
 CMD /bin/bash
