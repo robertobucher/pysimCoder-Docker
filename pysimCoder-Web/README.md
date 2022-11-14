@@ -11,7 +11,7 @@ In the Dockerfile it is possible to the following variables:
 
 Launch the docker image using
 ```
-$ docker run --rm -it -p 8080:8080 robertobucher/pysimcoder:novnc
+$ docker run --rm -it -p 8080:8080 --privileged robertobucher/pysimcoder:novnc
 ```
 Open a browser and go to  `http://<server>:8080/vnc.html`
 
