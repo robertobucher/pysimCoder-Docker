@@ -6,34 +6,22 @@ The two folders contain two versions of Dockerfile for generating two different 
 
 The pysimCoder_X folder contains a Dockerfile that can generate an image that should be run using X support.
 
-The pysimCoder_Web folder contains a Dockerfile which generate an image that can be run from a browser.
-
 It is possible to get both images directly from the Docker Containers using:
 
 ```
 docker pull robertobucher/pysimcoder:latest
 ```
-or
+
+Under Windows pysimCoder can be launched with
 ```
-docker pull robertobucher/pysimcoder:novnc
+$ docker run --rm -e DISPLAY=<IPADDR>:0.0 --net=host --privileged robertobucher/pysimcoder:latest
 ```
 
-The first image can be launched with
-```
-$ docker run --rm --env="DISPLAY" --net=host -v $XAUTHORITY:/tmp/.XAuthority -e XAUTHORITY=/tmp/.XAuthority robertobucher/pysimcoder:latest
-```
+Under Linux simply use the provided Docker-compose file.
+
 At the prompt launch
 ```
 psc
 ```
 
-The second image (pysimcoder:novnc) runs from a web browser:
-```
-$ docker run --rm -it -p 8080:8080 robertobucher/pysimcoder:novnc
-```
-Open a browser and go to  `http://<server>:8080/vnc.html`
-
-In the terminal launch
-```
-psc
-```
+This version contains also the SHV (Silicon-Heaven) tools to modify the parameters of the running RT application on the fly.
