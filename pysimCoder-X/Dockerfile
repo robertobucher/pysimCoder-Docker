@@ -39,7 +39,9 @@ RUN apt-get -y install \
     libqt5webkit5-dev \
     libqt5serialport5-dev \
     libqt5websockets5-dev \
-    libqt5svg5-dev
+    libqt5svg5-dev \
+    liblua5.4-dev \
+    doctest-dev
 
 RUN apt-get -y clean
 RUN apt-get -y autoremove
@@ -70,7 +72,7 @@ COPY shvspy.conf /root/.config/Elektroline/
 RUN git submodule update --init --recursive
 RUN mkdir build
 WORKDIR build
-RUN cmake -DCMAKE_INSTALL_PREFIX=.. ..
+RUN cmake -DCMAKE_INSTALL_PREFIX=.. -DUSE_QT6=OFF ..
 RUN make
 RUN make install
 
