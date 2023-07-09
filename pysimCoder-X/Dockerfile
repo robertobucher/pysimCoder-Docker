@@ -49,6 +49,7 @@ RUN apt-get -y autoremove
 WORKDIR .
 RUN git clone https://github.com/robertobucher/pysimCoder
 
+COPY make4docker.mak  ./pysimCoder
 WORKDIR ./pysimCoder
 RUN make -f make4docker.mak
 
@@ -62,7 +63,7 @@ WORKDIR shvapp
 RUN git submodule update --init --recursive
 RUN mkdir build
 WORKDIR build
-RUN cmake -DCMAKE_INSTALL_PREFIX=.. ..
+RUN cmake -DCMAKE_INSTALL_PREFIX=..  -DUSE_QT6=OFF ..
 RUN make
 RUN make install
 

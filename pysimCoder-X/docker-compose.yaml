@@ -1,13 +1,12 @@
 version: '3'
 services:
-  microros:
-    container_name: pysimcoder
+  pysimc:
+    container_name: roberto.bucher/pysimcoder
     image: pysimcoder:latest
     volumes:
     - /dev:/dev
     - $XAUTHORITY:/tmp/.XAuthority
-    - /home/bucher/ToDo/extradisk/ros_ws:/mnt
-    environment:
+   environment:
     - DISPLAY
     - XAUTHORITY=/tmp/.XAuthority
     network_mode: host
