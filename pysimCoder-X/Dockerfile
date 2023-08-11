@@ -31,7 +31,8 @@ RUN apt-get -y install \
     liblapack-dev \
     libxml2-dev \
     libcomedi-dev \
-    python3-pyqt5
+    python3-pyqt5 \
+    qt6-svg-dev
     
 RUN apt-get -y install \
     qtbase5-dev \
